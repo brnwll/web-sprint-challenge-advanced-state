@@ -46,7 +46,13 @@ function Quiz(props) {
               </div>
             </div>
 
-            <button id="submitAnswerBtn" disabled={!selectedAnswer}>
+            <button
+              id="submitAnswerBtn"
+              disabled={!selectedAnswer}
+              onClick={() =>
+                postAnswer({ quiz_id: quiz.quiz_id, answer_id: selectedAnswer })
+              }
+            >
               Submit answer
             </button>
           </>
