@@ -1,33 +1,47 @@
 // ❗ You don't need to add extra reducers to achieve MVP
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 
-const initialWheelState = 0
+const initialWheelState = 0;
 function wheel(state = initialWheelState, action) {
-  return state
+  console.log("reducer.js: wheel()");
+  switch (action.type) {
+    case "MOVE_CLOCKWISE":
+      return state === 5 ? 0 : state + 1;
+    case "MOVE_COUNTERCLOCKWISE":
+      return state === 0 ? 5 : state - 1;
+    default:
+      return state;
+  }
 }
 
-const initialQuizState = null
+const initialQuizState = null;
 function quiz(state = initialQuizState, action) {
-  return state
+  return state;
 }
 
-const initialSelectedAnswerState = null
+const initialSelectedAnswerState = null;
 function selectedAnswer(state = initialSelectedAnswerState, action) {
-  return state
+  return state;
 }
 
-const initialMessageState = ''
+const initialMessageState = "";
 function infoMessage(state = initialMessageState, action) {
-  return state
+  return state;
 }
 
 const initialFormState = {
-  newQuestion: '',
-  newTrueAnswer: '',
-  newFalseAnswer: '',
-}
+  newQuestion: "",
+  newTrueAnswer: "",
+  newFalseAnswer: "",
+};
 function form(state = initialFormState, action) {
-  return state
+  return state;
 }
 
-export default combineReducers({ wheel, quiz, selectedAnswer, infoMessage, form })
+export default combineReducers({
+  wheel,
+  quiz,
+  selectedAnswer,
+  infoMessage,
+  form,
+});
